@@ -29,12 +29,22 @@ Helper::init($config);
 Auth::init();
 
 // Parse Request Path
-$uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '/';
 $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
-$scriptDir = dirname($scriptName);
+$scriptDir = str_replace('\\', '/', dirname($scriptName));
 
-// Clean path relative to script directory
-$path = '/' . trim(str_replace($scriptDir, '', $uri), '/');
+// Clean path relative to script directory (only strip non-root subdirectories)
+if ($scriptDir !== '/' && $scriptDir !== '.' && $scriptDir !== '') {
+    $scriptDir = rtrim($scriptDir, '/');
+    if (strpos($uri, $scriptDir) === 0) {
+        $uri = substr($uri, strlen($scriptDir));
+    }
+}
+
+$path = '/' . trim($uri, '/');
+if ($path === '//') {
+    $path = '/';
+}
 
 // Direct query parameter check for slug (e.g. ?slug=food-bites)
 $slugParam = $_GET['slug'] ?? '';
