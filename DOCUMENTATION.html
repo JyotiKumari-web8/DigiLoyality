@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DigiLoyalty Pro — Complete Running Manual & System Guide</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    @page {
+        size: A4;
+        margin: 18mm 16mm 18mm 16mm;
+        @bottom-right {
+            content: "Page " counter(page);
+            font-size: 9pt;
+            color: #94a3b8;
+        }
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #1e293b;
+        background: #ffffff;
+        font-size: 10pt;
+        line-height: 1.55;
+    }
+
+    .page-break {
+        page-break-after: always;
+    }
+
+    /* Cover Page */
+    .cover {
+        padding: 40px 20px 20px 20px;
+        text-align: center;
+        border-bottom: 2px solid #e2e8f0;
+        margin-bottom: 30px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        background: #eef2ff;
+        color: #4f46e5;
+        border-radius: 999px;
+        font-size: 8.5pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 16px;
+    }
+
+    .title {
+        font-size: 26pt;
+        font-weight: 800;
+        color: #0f172a;
+        line-height: 1.15;
+        letter-spacing: -0.5px;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        font-size: 13pt;
+        color: #64748b;
+        margin-bottom: 24px;
+        font-weight: 500;
+    }
+
+    .meta-box {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        font-size: 9pt;
+        color: #475569;
+        padding: 12px;
+        background: #f8fafc;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    /* Section Styles */
+    h2 {
+        font-size: 15pt;
+        font-weight: 800;
+        color: #0f172a;
+        border-bottom: 2px solid #6366f1;
+        padding-bottom: 6px;
+        margin-top: 24px;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    h3 {
+        font-size: 11.5pt;
+        font-weight: 700;
+        color: #1e293b;
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+
+    p {
+        margin-bottom: 10px;
+        color: #334155;
+    }
+
+    /* Cards & Callouts */
+    .callout {
+        padding: 12px 16px;
+        border-radius: 10px;
+        margin: 12px 0;
+        font-size: 9.5pt;
+        border-left: 4px solid;
+    }
+
+    .callout-info {
+        background: #f0fdf4;
+        border-color: #22c55e;
+        color: #166534;
+    }
+
+    .callout-purple {
+        background: #f5f3ff;
+        border-color: #8b5cf6;
+        color: #5b21b6;
+    }
+
+    .callout-amber {
+        background: #fffbeb;
+        border-color: #f59e0b;
+        color: #92400e;
+    }
+
+    /* Phase Boxes */
+    .phase-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 16px 0;
+    }
+
+    .phase-card {
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        background: #fafafa;
+    }
+
+    .phase-card.p1 {
+        border-top: 4px solid #f59e0b;
+    }
+    .phase-card.p2 {
+        border-top: 4px solid #6366f1;
+    }
+    .phase-card.p3 {
+        border-top: 4px solid #ec4899;
+    }
+
+    .phase-title {
+        font-size: 10pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+
+    .phase-card.p1 .phase-title { color: #d97706; }
+    .phase-card.p2 .phase-title { color: #4f46e5; }
+    .phase-card.p3 .phase-title { color: #db2777; }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 14px 0;
+        font-size: 9pt;
+    }
+
+    th {
+        background: #f1f5f9;
+        color: #334155;
+        font-weight: 700;
+        text-align: left;
+        padding: 8px 12px;
+        border: 1px solid #e2e8f0;
+    }
+
+    td {
+        padding: 8px 12px;
+        border: 1px solid #e2e8f0;
+        color: #334155;
+        vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+        background: #f8fafc;
+    }
+
+    /* Steps */
+    .step-list {
+        margin: 12px 0 16px 0;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .step-item {
+        position: relative;
+        padding-left: 32px;
+        margin-bottom: 12px;
+    }
+
+    .step-number {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #6366f1;
+        color: #fff;
+        font-size: 8pt;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 22px;
+    }
+
+    code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8.5pt;
+        background: #f1f5f9;
+        padding: 2px 5px;
+        border-radius: 4px;
+        color: #0f172a;
+    }
+
+    .url-chip {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8pt;
+        background: #e0e7ff;
+        color: #3730a3;
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+
+    <!-- COVER SECTION -->
+    <div class="cover">
+        <span class="badge">Official Documentation & Operational Manual</span>
+        <h1 class="title">DigiLoyalty Pro</h1>
+        <p class="subtitle">Complete 3-Phase Operational Guide & Running Manual</p>
+        <div class="meta-box">
+            <span><b>Platform:</b> Digital Loyalty & Reseller Engine</span>
+            <span>&bull;</span>
+            <span><b>Database:</b> Turnkey SQLite</span>
+            <span>&bull;</span>
+            <span><b>Server:</b> PHP 8.3 Native</span>
+        </div>
+    </div>
+
+    <!-- 1. OVERVIEW & THE 3 PHASES -->
+    <h2>1. The 3-Phase Lifecycle Overview</h2>
+    <p>
+        DigiLoyalty Pro is structured into three clean, interconnected operational phases designed to onboard local retail businesses and turn first-time visitors into loyal repeat customers.
+    </p>
+
+    <div class="phase-grid">
+        <div class="phase-card p1">
+            <div class="phase-title">Phase 1: Master Admin</div>
+            <p style="font-size:8.5pt;"><b>You (The Agency Reseller)</b></p>
+            <p style="font-size:8pt; color:#64748b;">Owns the platform, onboards local business owners, manages client subscription plans, and collects SaaS revenue.</p>
+        </div>
+        <div class="phase-card p2">
+            <div class="phase-title">Phase 2: Business Owner</div>
+            <p style="font-size:8.5pt;"><b>Store Merchant (Your Client)</b></p>
+            <p style="font-size:8pt; color:#64748b;">Logs into their portal, builds their loyalty card, enrolls customers, tracks Repeat Visit Rate, and operates the billing terminal.</p>
+        </div>
+        <div class="phase-card p3">
+            <div class="phase-title">Phase 3: Customer</div>
+            <p style="font-size:8.5pt;"><b>The Shopper / Diner</b></p>
+            <p style="font-size:8pt; color:#64748b;">Logs in with mobile number to an account already created by the store. Collects stamps, earns coins, and redeems rewards.</p>
+        </div>
+    </div>
+
+    <div class="callout callout-info">
+        <b>💡 The Core Loyalty Philosophy:</b> In retail and dining, a customer who visits once is just an acquisition. Loyalty begins the exact moment they return for their <b>1st repeat visit (Visit #2)</b>. The system automatically marks customers who visit &gt; 1 time as <b>Repeat Customers</b> and tracks this as the primary business health KPI.
+    </div>
+
+    <!-- 2. QUICK START & RUNNING LOCALLY -->
+    <h2>2. Quick Start & Server Launch</h2>
+    <p>The project is fully self-contained with SQLite and requires <b>zero external database setup, zero passwords, and zero configuration</b>.</p>
+
+    <div class="step-list">
+        <div class="step-item">
+            <div class="step-number">1</div>
+            <b>Double-Click the Launcher:</b> Open your project folder and double-click <code>run.bat</code>.
+        </div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <b>Manual Terminal Command:</b> Alternatively, in PowerShell run:<br>
+            <code>php -d extension=pdo_sqlite -S 127.0.0.1:8000 -t public</code>
+        </div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <b>Open Browser:</b> Visit <span class="url-chip">http://localhost:8000</span>. The application is immediately live.
+        </div>
+    </div>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <!-- 3. PHASE 1: MASTER ADMIN -->
+    <h2>3. Phase 1: Master Admin (You as the Reseller)</h2>
+    <p>As the Master Admin, you operate the white-label agency control center to onboard merchants and manage subscriptions.</p>
+
+    <h3>A. Master Admin Setup & Login</h3>
+    <ul style="padding-left: 20px; font-size: 9pt; margin-bottom: 12px;">
+        <li><b>URL:</b> <span class="url-chip">http://localhost:8000/admin/login</span></li>
+        <li><b>Initial Setup:</b> If launching for the first time, the portal automatically presents the <b>"Create Master Admin"</b> setup screen. Enter your Agency Name, Your Name, Admin Email, and Admin Password.</li>
+        <li><b>Login:</b> On subsequent visits, enter your registered email and password to access the Reseller Console.</li>
+    </ul>
+
+    <h3>B. Onboarding a Client Business (Selling Your Service)</h3>
+    <p>When you close a sale with a local cafe, salon, or store, you onboard them directly from your console:</p>
+    <div class="step-list">
+        <div class="step-item">
+            <div class="step-number">1</div>
+            Click the blue <b>"+ Onboard New Merchant"</b> button in the top navigation.
+        </div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <b>Fill Store Details:</b>
+            <ul style="margin-top: 4px;">
+                <li><b>Business Name:</b> e.g. <i>Royal Brew Cafe</i></li>
+                <li><b>Category:</b> Restaurant & Cafe, Salon & Spa, Retail Boutique, Gym, etc.</li>
+                <li><b>Owner Name & Phone:</b> The business owner's contact info.</li>
+                <li><b>Owner Login Email & Password:</b> The credentials the store owner will use to access their dashboard.</li>
+                <li><b>Subscription Plan:</b> Choose 30 Days (Trial), 90 Days, Annual (365 Days), or Lifetime VIP.</li>
+                <li><b>Stamp Target & Reward:</b> e.g. 8 Stamps = <i>Free Gourmet Coffee / ₹150 Off</i>.</li>
+            </ul>
+        </div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            Click <b>"Create & Deliver Credentials"</b>. The merchant is created instantly.
+        </div>
+    </div>
+
+    <h3>C. Managing Client Subscriptions</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>How It Works</th>
+                <th>Purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>+30 Days Plan</b></td>
+                <td>1-click button in client table</td>
+                <td>Extends the merchant's plan validity when they pay monthly/annual fees.</td>
+            </tr>
+            <tr>
+                <td><b>Suspend / Activate</b></td>
+                <td>Toggle switch</td>
+                <td>Suspends merchant access if their subscription payment is overdue.</td>
+            </tr>
+            <tr>
+                <td><b>Owner Portal</b></td>
+                <td>1-click quick access link</td>
+                <td>Instantly logs you in as that business owner to assist them or view their stats.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 4. PHASE 2: BUSINESS OWNER -->
+    <h2>4. Phase 2: Business Owner (Store Merchant)</h2>
+    <p>The business owner logs in to configure their digital loyalty card, enroll customers, and manage checkouts.</p>
+
+    <h3>A. Owner Login & Dashboard</h3>
+    <ul style="padding-left: 20px; font-size: 9pt; margin-bottom: 12px;">
+        <li><b>URL:</b> <span class="url-chip">http://localhost:8000/login</span></li>
+        <li><b>Credentials:</b> Owner Email and Password created by Admin in Phase 1.</li>
+        <li><b>Dashboard KPIs:</b> Displays Repeat Visit Rate (%), Total Customers, Visits This Week, and Coins Issued.</li>
+    </ul>
+
+    <h3>B. Visual Card Builder & Standee</h3>
+    <ul style="padding-left: 20px; font-size: 9pt; margin-bottom: 12px;">
+        <li><b>Card Settings:</b> <span class="url-chip">/owner/card-settings</span> — Customize primary/secondary brand colors, stamp count (e.g. 6, 8, 10 stamps), reward title, and coin earning rate.</li>
+        <li><b>Print Counter Standee:</b> <span class="url-chip">/owner/standee</span> — Generates a print-ready table tent card with the store's unique QR code to display on billing counters.</li>
+    </ul>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <!-- 5. HOW OWNER ADDS 1ST-TIME CUSTOMERS -->
+    <h2>5. How Business Owners Add Customers (1st Visit)</h2>
+    <p>When a customer visits the store for the first time, the owner or cashier enrolls them using either of two methods:</p>
+
+    <h3>Method A: Cashier Speed Terminal (During Checkout — 3 Seconds)</h3>
+    <div class="step-list">
+        <div class="step-item">
+            <div class="step-number">1</div>
+            Open the <b>Cashier Terminal</b> at <span class="url-chip">http://localhost:8000/staff/terminal</span>.
+        </div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            Type the customer's 10-digit mobile number on the keypad and click <b>"Search Customer"</b>.
+        </div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            If new, enter their name (e.g. <i>"Ananya"</i>), input the bill amount (optional), and click <b>"+1 Visit Stamp & Credit Coins"</b>.
+        </div>
+        <div class="step-item">
+            <div class="step-number">4</div>
+            <b>Result:</b> Account is created, Visit #1 is stamped, and welcome coins are awarded with confetti animation.
+        </div>
+    </div>
+
+    <h3>Method B: Owner Dashboard (Customer CRM)</h3>
+    <div class="step-list">
+        <div class="step-item">
+            <div class="step-number">1</div>
+            Go to <span class="url-chip">/owner/customers</span> and click <b>"+ Enroll New Customer"</b>.
+        </div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            Enter Customer Mobile (10 digits), Full Name, Email (optional), and Welcome Reward Coins (default 20).
+        </div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            Click <b>"Enroll & Create Card"</b>. The customer profile is immediately active.
+        </div>
+    </div>
+
+    <!-- 6. PHASE 3: CUSTOMER LOGIN & LOYALTY CARD -->
+    <h2>6. Phase 3: Customer Login & Loyalty Pass</h2>
+    <p>The customer logs into the account <b>already created for them by the owner</b> with zero app downloads.</p>
+
+    <div class="step-list">
+        <div class="step-item">
+            <div class="step-number">1</div>
+            <b>Access Link:</b> Customer scans the store counter QR standee or opens <span class="url-chip">http://localhost:8000/card/{slug}</span>.
+        </div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <b>1-Step Sign In:</b> Enters their 10-digit mobile number.
+        </div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <b>Live Digital Pass Display:</b> The system recognizes their account created by the owner and displays:
+            <ul style="margin-top: 4px;">
+                <li><b>Apple Wallet Card:</b> Branded header with store logo, customer name, and tier status.</li>
+                <li><b>Stamp Punch Circles:</b> Dashed circles showing filled stars for stamps earned and a gold gift icon for the final goal.</li>
+                <li><b>Reward Coins Wallet:</b> Live coin balance with real Rupee value equivalent.</li>
+                <li><b>Personal QR Code:</b> Dynamic QR code for the cashier to scan during counter checkout.</li>
+                <li><b>WhatsApp Share Link:</b> 1-click button to share referral pass with friends.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <!-- 7. REPEAT VISITS & REDEMPTION PROCESS -->
+    <h2>7. The Reward Redemption Process</h2>
+    <p>The system provides two redemption mechanisms to reward customer loyalty:</p>
+
+    <h3>Type 1: Milestone Stamp Reward (e.g. Free Item after 8 Stamps)</h3>
+    <div class="callout callout-purple">
+        <b>Workflow:</b>
+        <ol style="margin-left: 18px; margin-top: 6px;">
+            <li>Customer visits store and completes their required stamps (e.g. 8th stamp).</li>
+            <li>A unique alphanumeric voucher code (e.g. <code>RW-8D4F2A</code>) is automatically generated in their pass under <b>"Claimed Vouchers"</b>.</li>
+            <li>On their next visit, the customer shows the voucher code to the cashier.</li>
+            <li>The cashier looks up the customer in the terminal and clicks <b>"Redeem Voucher"</b>.</li>
+            <li>The system marks the voucher as Redeemed with a timestamp, preventing reuse.</li>
+        </ol>
+    </div>
+
+    <h3>Type 2: Reward Coin Bill Discount (Spend Cashback)</h3>
+    <div class="callout callout-amber">
+        <b>Workflow:</b>
+        <ol style="margin-left: 18px; margin-top: 6px;">
+            <li>Customer accumulates coins on every purchase (e.g. 1 coin per ₹10 spent).</li>
+            <li>At checkout, customer requests to use their coins: <i>"Redeem 50 coins for a discount."</i></li>
+            <li>In the Cashier Terminal under <b>"Redeem Coins for Bill Discount"</b>, cashier enters <code>50</code> and clicks <b>"Apply Discount"</b>.</li>
+            <li>50 coins are debited from the customer's wallet, and the discount equivalent (e.g. ₹25.00) is deducted from the final bill.</li>
+        </ol>
+    </div>
+
+    <!-- 8. URL CHEAT SHEET -->
+    <h2>8. Complete URL & Role Reference Sheet</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Phase / Role</th>
+                <th>URL Path</th>
+                <th>Default Access</th>
+                <th>Key Capabilities</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>Phase 1: Master Admin</b></td>
+                <td><span class="url-chip">/admin/login</span></td>
+                <td>Configured on 1st visit</td>
+                <td>Onboard merchants, set subscriptions, extend plans, white-label branding.</td>
+            </tr>
+            <tr>
+                <td><b>Phase 2: Business Owner</b></td>
+                <td><span class="url-chip">/login</span></td>
+                <td>Set by Admin in Phase 1</td>
+                <td>Card visual builder, customer CRM, repeat visit KPI, printable standee.</td>
+            </tr>
+            <tr>
+                <td><b>Phase 2: Cashier Terminal</b></td>
+                <td><span class="url-chip">/staff/login</span></td>
+                <td>Staff Email + PIN 1234</td>
+                <td>Fast 3-second counter lookup, punch stamps, credit coins, redeem vouchers.</td>
+            </tr>
+            <tr>
+                <td><b>Phase 3: Customer Card</b></td>
+                <td><span class="url-chip">/card/{slug}</span></td>
+                <td>10-digit mobile number</td>
+                <td>View punch stamps, live coins balance, personal QR code, claimed vouchers.</td>
+            </tr>
+            <tr>
+                <td><b>System Setup</b></td>
+                <td><span class="url-chip">/install</span></td>
+                <td>Automated turnkey</td>
+                <td>Self-contained SQLite database initialization.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 30px; text-align: center; font-size: 8.5pt; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 12px;">
+        DigiLoyalty Pro &bull; Complete System Manual &bull; Designed & Built with Native PHP 8.3 & Self-Contained SQLite
+    </div>
+
+</body>
+</html>

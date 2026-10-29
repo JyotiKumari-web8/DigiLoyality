@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs & temp files
+*.log
+scratch/
+
+# SQLite locks/journals
+config/*.sqlite-journal
+config/*.sqlite-wal
+config/*.sqlite-shm
+
+# Composer / NPM (if added later)
+vendor/
+node_modules/
