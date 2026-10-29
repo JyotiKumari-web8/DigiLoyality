@@ -1,10 +1,30 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    
-    # Route all requests to public/
+
+    # Block direct browser access to sensitive directories and system files
+    RewriteRule ^(config|core|models|views|controllers)/ - [F,L]
+
+    # Serve static assets (css, js, images) from public/ if requested from root
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -d
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Forward root to public/index.php
     RewriteRule ^$ public/index.php [L]
-    RewriteCond %{REQUEST_URI} !^/public/
+
+    # Forward all other routes to public/index.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ public/index.php [L,QSA]
 </IfModule>
+
+# Block access to database files and hidden files
+<FilesMatch "(\.(sqlite|sql|log|env|git|bat|md)|composer\.*|package\.*)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
