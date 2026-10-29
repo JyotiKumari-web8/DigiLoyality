@@ -76,7 +76,6 @@ class OwnerController {
 
                 $business = Business::findById($bizId);
                 Auth::loginOwner($business);
-                Helper::flash('success', 'Your loyalty program has been successfully created!');
                 header('Location: ' . Helper::url('owner/dashboard'));
                 exit;
             }
